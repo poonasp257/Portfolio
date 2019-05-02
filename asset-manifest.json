@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.475112af.chunk.css",
+    "main.js": "/Portfolio/static/js/main.740df0fa.chunk.js",
+    "main.js.map": "/Portfolio/static/js/main.740df0fa.chunk.js.map",
+    "runtime~main.js": "/Portfolio/static/js/runtime~main.132fbc8c.js",
+    "runtime~main.js.map": "/Portfolio/static/js/runtime~main.132fbc8c.js.map",
+    "static/js/2.09735bde.chunk.js": "/Portfolio/static/js/2.09735bde.chunk.js",
+    "static/js/2.09735bde.chunk.js.map": "/Portfolio/static/js/2.09735bde.chunk.js.map",
+    "index.html": "/Portfolio/index.html",
+    "precache-manifest.fc7bbac2b9751e5c308a56ec83e91c31.js": "/Portfolio/precache-manifest.fc7bbac2b9751e5c308a56ec83e91c31.js",
+    "service-worker.js": "/Portfolio/service-worker.js",
+    "static/css/main.475112af.chunk.css.map": "/Portfolio/static/css/main.475112af.chunk.css.map",
+    "static/media/Menu.css": "/Portfolio/static/media/ico_mail.7c524b35.svg"
+  }
+}
