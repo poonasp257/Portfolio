@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/Portfolio/static/js/main.100cbf3b.chunk.js",
-    "main.js.map": "/Portfolio/static/js/main.100cbf3b.chunk.js.map",
-    "runtime~main.js": "/Portfolio/static/js/runtime~main.132fbc8c.js",
-    "runtime~main.js.map": "/Portfolio/static/js/runtime~main.132fbc8c.js.map",
-    "static/js/2.9d0cfa3e.chunk.js": "/Portfolio/static/js/2.9d0cfa3e.chunk.js",
-    "static/js/2.9d0cfa3e.chunk.js.map": "/Portfolio/static/js/2.9d0cfa3e.chunk.js.map",
-    "index.html": "/Portfolio/index.html",
-    "precache-manifest.9d803ff6552201df08118d628fb70efb.js": "/Portfolio/precache-manifest.9d803ff6552201df08118d628fb70efb.js",
-    "service-worker.js": "/Portfolio/service-worker.js",
-    "static/media/Road.jpg": "/Portfolio/static/media/Road.f0359529.jpg"
+    "main.js": "https://leejunyoung.net/static/js/main.17dcd009.chunk.js",
+    "main.js.map": "https://leejunyoung.net/static/js/main.17dcd009.chunk.js.map",
+    "runtime~main.js": "https://leejunyoung.net/static/js/runtime~main.b18b021e.js",
+    "runtime~main.js.map": "https://leejunyoung.net/static/js/runtime~main.b18b021e.js.map",
+    "static/js/2.e3ff99c1.chunk.js": "https://leejunyoung.net/static/js/2.e3ff99c1.chunk.js",
+    "static/js/2.e3ff99c1.chunk.js.map": "https://leejunyoung.net/static/js/2.e3ff99c1.chunk.js.map",
+    "index.html": "https://leejunyoung.net/index.html",
+    "precache-manifest.e040b4ea995f46a3485d787be124c747.js": "https://leejunyoung.net/precache-manifest.e040b4ea995f46a3485d787be124c747.js",
+    "service-worker.js": "https://leejunyoung.net/service-worker.js",
+    "static/media/Road.jpg": "https://leejunyoung.net/static/media/Road.f0359529.jpg"
   }
 }
