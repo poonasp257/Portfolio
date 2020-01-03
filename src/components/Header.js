@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
-import logo from '../resources/logo.png';
+import logo from '../resources/logo_white.png';
 import backgroundImage from '../resources/Road.jpg';
 
 const Container = styled.header`
@@ -21,7 +21,7 @@ const Opacity = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(51, 51, 51, 0.5);
+    background-color: rgba(51, 51, 51, 0.45);
 `;
 
 const Content = styled.div`
@@ -54,7 +54,7 @@ const Title = styled.div`
     letter-spacing: 6px;
 `;
 
-const Underline = styled.hr`
+const Bar = styled.hr`
     margin-top: 20px;
     width: 110px;
     height: 1px;
@@ -73,23 +73,24 @@ const ScrollDownIndicator = styled(KeyboardArrowDownIcon)`
     position: absolute;
     bottom: 100px;
     left: 50%;
+    transform: translate(-50%, 0);
     animation: bounce-fade 1.2s infinite;
     @keyframes bounce-fade {
-        0%   { opacity: 0; bottom: 70px; }
-        100% { opacity: 1; bottom: 35px; }
+        from { opacity: 0; bottom: 70px; }
+        to { opacity: 1; bottom: 35px; }
     }
 `;
 
-class Header extends Component {    
+class Header extends PureComponent {    
     render() {
         return (
-            <Container scrollY={window.scrollY}>
+            <Container id="home">
                 <Opacity/>
                 <Content>
                     <Text>
                         <Logo src={logo }/>
                         <Title>DEVELOPER</Title>
-                        <Underline/>
+                        <Bar/>
                         <Instroduction>JunYoung Lee의 포트폴리오 사이트입니다.</Instroduction>
                     </Text>
                     <ScrollDownIndicator/>
