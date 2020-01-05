@@ -6,6 +6,8 @@ const Container = styled.section`
     position: relative;
     min-height: 500px;
     padding: 30px 0 100px 0;
+    margin-bottom: 400px;
+    color: #121E26;
 `;
 
 const Title = styled.h1`
@@ -19,7 +21,7 @@ const TitleBar = styled.hr`
     width: 70px;
     height: 3px;
     border: 0;
-    background-color: black;
+    background-color: #121E26;
 `;
 
 class Contact extends PureComponent {

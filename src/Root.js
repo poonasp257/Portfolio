@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { Home } from 'containers';
 
 const Root = () => {
-    return <Home/>;
-};
+    return (<Home/>);
+}
 
-export default Root;
+export default  Root;

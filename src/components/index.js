@@ -5,6 +5,7 @@ import Footer from './Footer';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
 import Contact from './Contact';
+import { HorizontalScrollBar, VerticalScrollBar } from './ScrollBar';
 
 export { 
     Header,
@@ -13,5 +14,7 @@ export {
     Footer,
     AboutMe,
     Projects,
-    Contact
+    Contact,
+    HorizontalScrollBar,
+    VerticalScrollBar
 };

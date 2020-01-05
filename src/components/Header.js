@@ -11,6 +11,7 @@ const Container = styled.header`
     position: relative;
     width: 100%;
     height: 100vh;
+    line-height: 2;
     background-position: 50% 80%;
     background-repeat: no-repeat;
     background-image: url('${backgroundImage}');
@@ -21,7 +22,7 @@ const Opacity = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(51, 51, 51, 0.45);
+    background-color: rgba(50, 50, 50, 0.45);
 `;
 
 const Content = styled.div`
@@ -91,7 +92,10 @@ class Header extends PureComponent {
                         <Logo src={logo }/>
                         <Title>DEVELOPER</Title>
                         <Bar/>
-                        <Instroduction>JunYoung Lee의 포트폴리오 사이트입니다.</Instroduction>
+                        <Instroduction>
+                            클라이언트&서버 개발자<br/>
+                            JunYoung의 포트폴리오 사이트입니다.
+                        </Instroduction>
                     </Text>
                     <ScrollDownIndicator/>
                 </Content> 

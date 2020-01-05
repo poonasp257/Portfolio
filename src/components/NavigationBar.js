@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 import Link from './Link';
 
-import logo from '../resources/logo_black.png';
-
 const fixedMenu = `
     position: fixed;
     animation: popdown 0.8s;
@@ -23,7 +21,7 @@ const Container = styled.nav`
     top: 0px;
     width: 100%;
     padding: 10px;
-    background-color: #fafafa;
+    background-color: white;
     border-bottom: 1px solid #c8c8c8;
 `;
 
@@ -31,21 +29,15 @@ const navbarHeight = 50;
 
 const Content = styled.div`
     position: relative;
-    width: 60%;
+    width: 100%;
     height: ${navbarHeight}px;
     margin: 0 auto;
 `;
 
-const Logo = styled.img`
-    float: left;
-    width: ${navbarHeight}px;
-    height: ${navbarHeight}px;
-`;
-
 const Menu = styled.div`
-    float: right;
     padding: 15px;
-    color: black;
+    color: #121E26;
+    text-align: center; 
 `;
 
 class NavigationBar extends PureComponent {
@@ -69,18 +61,19 @@ class NavigationBar extends PureComponent {
     componentDidMount() {
         this.maxHiddenHeight = document.getElementById("home").offsetHeight;
 
-        const menu = document.getElementById("menu");
-        this.links = menu.children;
-
+        window.addEventListener("resize", this.handleResize);
         window.addEventListener("scroll", this.handleScroll);
+    }
+    
+    handleResize = () => {
+        this.maxHiddenHeight = document.getElementById("home").offsetHeight;
     }
 
     render() {
         return (
             <Container id="navigation" isFixed={this.state.isFixed}>
                 <Content>
-                    <Logo src={logo}/>
-                    <Menu id="menu">
+                    <Menu>
                         <Link destination="home" name="home" navMode/>
                         <Link destination="about" name="about me" navMode/>
                         <Link destination="projects" name="projects" navMode/>

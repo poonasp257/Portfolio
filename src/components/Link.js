@@ -13,7 +13,7 @@ const Container = styled.section`
     ${props => props.active ? animationFillColor : null };
     :hover { ${animationFillColor} }
     @keyframes fillColor {
-        100% { color: #f9d6fd; }
+        100% { color: #B4D2D9; }
     }
 `;
 
@@ -31,7 +31,7 @@ class Link extends PureComponent {
         };
     }
 
-    componentDidMount() {
+    intializeTarget = () => {
         const navBar = document.getElementById("navigation");
         const target = document.getElementById(this.props.destination);
         const targetRect = target.getBoundingClientRect();
@@ -39,7 +39,12 @@ class Link extends PureComponent {
         this.targetRectTop = targetRect.top + window.pageYOffset - navBar.offsetHeight;
         this.targetRectBottom = targetRect.bottom + window.pageYOffset - navBar.offsetHeight;
         this.navBarHeight = navBar.offsetHeight;
+    }
+
+    componentDidMount() {
+        this.intializeTarget();
         
+        window.addEventListener("resize", this.intializeTarget);
         window.addEventListener("scroll", this.handleScroll);
         this.ref.current.addEventListener("click", this.handleClick);
     }    
