@@ -6,6 +6,7 @@ import AboutMe from './AboutMe';
 import Projects from './Projects';
 import Contact from './Contact';
 import { HorizontalScrollBar, VerticalScrollBar } from './ScrollBar';
+import SlideViewer from './SlideViewer';
 
 export { 
     Header,
@@ -16,5 +17,6 @@ export {
     Projects,
     Contact,
     HorizontalScrollBar,
-    VerticalScrollBar
+    VerticalScrollBar,
+    SlideViewer
 };

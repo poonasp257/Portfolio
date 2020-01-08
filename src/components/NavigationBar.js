@@ -3,11 +3,13 @@ import styled from 'styled-components';
 
 import Link from './Link';
 
+const navMenuHeight = 50;
+
 const fixedMenu = `
     position: fixed;
     animation: popdown 0.8s;
     @keyframes popdown {
-        0% { transform: translateY(-50px); }
+        0% { transform: translateY(-${navMenuHeight}px); }
     }
 `;
 
@@ -25,12 +27,10 @@ const Container = styled.nav`
     border-bottom: 1px solid #c8c8c8;
 `;
 
-const navbarHeight = 50;
-
 const Content = styled.div`
     position: relative;
     width: 100%;
-    height: ${navbarHeight}px;
+    height: ${navMenuHeight}px;
     margin: 0 auto;
 `;
 

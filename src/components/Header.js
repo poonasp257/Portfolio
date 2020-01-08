@@ -18,7 +18,7 @@ const Container = styled.header`
     background-size: cover;
 `;
 
-const Opacity = styled.div`
+const BlurContainer = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -72,13 +72,13 @@ const Instroduction = styled.div`
 
 const ScrollDownIndicator = styled(KeyboardArrowDownIcon)`
     position: absolute;
-    bottom: 100px;
+    bottom: 90px;
     left: 50%;
     transform: translate(-50%, 0);
     animation: bounce-fade 1.2s infinite;
     @keyframes bounce-fade {
-        from { opacity: 0; bottom: 70px; }
-        to { opacity: 1; bottom: 35px; }
+        from { opacity: 0; bottom: 45px; }
+        to { opacity: 1; bottom: 10px; }
     }
 `;
 
@@ -86,10 +86,10 @@ class Header extends PureComponent {
     render() {
         return (
             <Container id="home">
-                <Opacity/>
+                <BlurContainer/>
                 <Content>
                     <Text>
-                        <Logo src={logo }/>
+                        <Logo src={logo}/>
                         <Title>DEVELOPER</Title>
                         <Bar/>
                         <Instroduction>
