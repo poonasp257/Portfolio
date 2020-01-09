@@ -1,20 +1,13 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-const animationFillColor = `
-    animation: fillColor 0.3s forwards;
-`;
-
 const Container = styled.section`
     display: inline-block;
     margin-left: 30px;
     text-transform: uppercase;
     cursor: pointer;
-    ${props => props.active ? animationFillColor : null };
-    :hover { ${animationFillColor} }
-    @keyframes fillColor {
-        100% { color: #B4D2D9; }
-    }
+    transition: color 0.2s ease-in-out;
+    :hover { color: #B4D2D9; }
 `;
 
 class Link extends PureComponent {

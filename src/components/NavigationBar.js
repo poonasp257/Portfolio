@@ -77,7 +77,7 @@ class NavigationBar extends PureComponent {
                         <Link destination="home" name="home" navMode/>
                         <Link destination="about" name="about me" navMode/>
                         <Link destination="projects" name="projects" navMode/>
-                        <Link destination="contact" name="contact" navMode/>
+                        <Link destination="blog" name="blog" navMode/>
                     </Menu>
                 </Content>
             </Container>

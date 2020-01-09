@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import styled from 'styled-components'
 
 import { 
-    Header, NavigationBar, Footer, AboutMe, Projects, Contact, VerticalScrollBar
+    Header, NavigationBar, Footer, AboutMe, Projects, Blog, VerticalScrollBar
 } from 'components';
 
 import { BlockReserveLoading } from 'react-loadingg';
@@ -56,7 +56,7 @@ class Home extends PureComponent {
                     <NavigationBar/>
                     <AboutMe/>
                     <Projects/>
-                    <Contact/>
+                    <Blog/>
                 </Content>
                 <Footer/>
                 <VerticalScrollBar size="6.5px" color="#b4b4b4"/>

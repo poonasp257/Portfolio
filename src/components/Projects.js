@@ -85,7 +85,7 @@ class Projects extends PureComponent {
                         <Loading>
                             <CommonLoading size="large"/>
                         </Loading>
-                    ) : this.state.projects.map(project => (<Project {...project}/>)) }
+                    ) : this.state.projects.map((project, key) => (<Project {...project} key={key}/>)) }
                 </InContainer>
             </OutContainer>
         );
@@ -108,7 +108,8 @@ const Thumbnail = styled.div`
     height: 100%;
     background-image: url('${props => props.src}');
     background-size: cover;
-    animation: ${props => props.hover ? animation.zoomIn : animation.zoomOut} 0.3s forwards; 
+    transition: transform 0.3s;
+    ${props => props.hover ? "transform: scale(1.05)" : null }
 `;
 
 const Preview = styled.div`
@@ -147,10 +148,10 @@ class Project extends PureComponent {
         this.images = [];
 
         if(props.thumbnail !== "") { 
-            this.thumbnail = require(`${props.thumbnail}`);
+            this.thumbnail = require(`resources/${props.thumbnail}.jpg`);
         }
         if(props.images.length !== 0) {
-            this.images = props.images.map(image => require(`${image}`));
+            this.images = props.images.map(image => require(`resources/${image}.jpg`));
         }
 
         this.state = { 
@@ -187,16 +188,23 @@ class Project extends PureComponent {
             </Preview>
         );
 
+        const video = videoUrl !== "" ? <iframe title={title} src={videoUrl + '?rel=0'} frameBorder="0" key={title}/> : null;
+        const screenshot = this.images.map((image, key) => ( 
+                <img src={image} key={key} alt="none"/>)
+            );
+
+        let slideList = [ video ];
+        slideList = slideList.concat(screenshot);
+
         const detailView = (
             <DetailView onClose={this.closeDetailView} open={this.state.enableDetailView} maxWidth="md">
                 <SlideViewer width={800} height={600}>
-                    { videoUrl !== "" ? <iframe title={title} src={videoUrl + '?rel=0'} frameBorder="0"/> : null }
-                    { this.images.map((image, key) => ( 
-                        <img src={image} key={key} alt="none"/>)
-                    )}
+                    {slideList}
                 </SlideViewer>
                 <DialogContent>
                     <h2>{title}</h2>
+                    <h3>Role: UI Development</h3>
+                    <h3>Tech: React.js</h3>
                     <p>{description}</p>
                 </DialogContent>
             </DetailView>

@@ -4,7 +4,7 @@ import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
-import Contact from './Contact';
+import Blog from './Blog';
 import { HorizontalScrollBar, VerticalScrollBar } from './ScrollBar';
 import SlideViewer from './SlideViewer';
 
@@ -15,7 +15,7 @@ export {
     Footer,
     AboutMe,
     Projects,
-    Contact,
+    Blog,
     HorizontalScrollBar,
     VerticalScrollBar,
     SlideViewer

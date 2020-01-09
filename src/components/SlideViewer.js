@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-import BackwardArrowIcon from '@material-ui/icons/ArrowBackIos';
-import ForwardArrowIcon from '@material-ui/icons/ArrowForwardIos';
+import BackwardArrowIcon from '@material-ui/icons/KeyboardArrowLeft';
+import ForwardArrowIcon from '@material-ui/icons/KeyboardArrowRight';
 
 const Container = styled.div`
     position: relative;
@@ -46,7 +46,7 @@ const ForwardButton = styled.div`
 `;
 
 const arrowStyle = `
-    margin: 8px 10px 8px 10px;
+    margin: 5px;
 `;
 
 const BackwardArrow = styled(BackwardArrowIcon)`
@@ -101,12 +101,12 @@ class SliderViewer extends PureComponent {
             <Container width={this.SlideWidth} height={this.SlideHeight}>
                 { currentIndex > 0 &&  
                     <BackwardButton onClick={this.decreaseIndex}>
-                        <BackwardArrow fontSize="small"/>
+                        <BackwardArrow fontSize="large"/>
                     </BackwardButton>
                 }
                 { currentIndex < items.length - 1 &&
                     <ForwardButton onClick={this.increaseIndex}>
-                        <ForwardArrow fontSize="small"/>
+                        <ForwardArrow fontSize="large"/>
                     </ForwardButton>
                 }
                 <SlideList ref={this.ref}>

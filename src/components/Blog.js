@@ -6,7 +6,7 @@ const Container = styled.section`
     position: relative;
     min-height: 400px;
     padding: 30px 0 100px 0;
-    margin-bottom: 400px;
+    margin-bottom: 350px;
     color: #121E26;
 `;
 
@@ -24,15 +24,15 @@ const HeaderBar = styled.hr`
     background-color: #121E26;
 `;
 
-class Contact extends PureComponent {
+class Blog extends PureComponent {
     render() {
         return (
-            <Container id="contact">
-                <Header>Contact.</Header>
+            <Container id="blog">
+                <Header>Blog.</Header>
                 <HeaderBar/>
             </Container>
         );
     }
 };
 
-export default Contact;
+export default Blog;
