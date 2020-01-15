@@ -1,0 +1,19 @@
+{
+    "projects": [
+        {
+            "title": "Collaborative Art Game",
+            "subTitle": "자신의 고민을 다른 사람과 공유하고 해결책을 찾아가는 게임",
+            "thumbnail": "Road",
+            "videoUrl": "https://www.youtube.com/embed/tukUi4V31o4?list=TLPQMDkwMTIwMjDndFYxVqhxOw",
+            "images": [
+                "Lake",
+                "Pet",
+                "Night"
+            ],
+            "githubUrl": "https://github.com/poonasp257",
+            "webSiteUrl": "",
+            "storeUrl": "",
+            "description": "RA로 활동하면서 연구 및 개발 진행한 프로젝트."
+        }
+    ]
+}
