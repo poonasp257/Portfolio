@@ -26,7 +26,7 @@ const Loading = styled.div`
     position: fixed;
     width: 100%;
     height: 100%;
-    background-color: #fafafa;
+    background-color: #f0f0f0;
     z-index: 9999;
     ${props => props.done ? `animation: fadeout 1.8s forwards;` : null}
     @keyframes fadeout {

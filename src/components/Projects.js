@@ -4,6 +4,10 @@ import styled from 'styled-components';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LaunchIcon from '@material-ui/icons/Launch';
+import ShopIcon from '@material-ui/icons/Shop';
+
 import { CommonLoading } from 'react-loadingg';
 
 import SlideViewer from './SlideViewer';
@@ -129,15 +133,47 @@ const PreviewTitle = styled.div`
 `;
 
 const PreviewDescription = styled.div`    
-    margin: 15px auto;
-    width: 240px;
+    margin: 25px auto;
+    width: 300px;
     font-size: 20px;
-    line-height: 1.6;
+    line-height: 1.8;
 `;
 
-const DetailView = styled(Dialog)`
+const DetailViewContent = styled.div`
+    display: flex;
+`;
+
+const DetailViewSummary = styled(DialogContent)`
     font-family: inherit;
     color: #121E26;
+`;
+
+const DetailViewHeader = styled.header`
+    border-bottom: 2px solid #121E26;
+`;
+
+const DetailViewMain = styled.p`
+    width: 380px;
+    line-height: 1.8;
+`;
+
+const DetailViewFooter = styled.footer`
+    display: flex;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 20px;
+`;
+
+const LinkIcon = styled.a`
+    margin: 0px 10px 0px 10px;
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    color: #121E26;
+    :hover {
+        color: #B4D2D9;
+        transform: scale(1.05);
+    }       
 `;
 
 class Project extends PureComponent {
@@ -177,7 +213,7 @@ class Project extends PureComponent {
     }
 
     render() {
-        const { title, subTitle, videoUrl, description } = this.props;
+        const { title, subTitle, videoUrl, githubUrl, webSiteUrl, storeUrl, description } = this.props;
 
         const preview = (
              <Preview hover={this.state.enablePreview}
@@ -196,18 +232,48 @@ class Project extends PureComponent {
         let slideList = [ video ];
         slideList = slideList.concat(screenshot);
 
+        const urlIcons = [
+            {
+                url: githubUrl,
+                icon: <GitHubIcon fontSize="large"/>
+            },
+            {
+                url: webSiteUrl,
+                icon: <LaunchIcon fontSize="large"/>
+            },
+            {
+                url: storeUrl,
+                icon: <ShopIcon fontSize="large"/>
+            }
+        ]
+
         const detailView = (
-            <DetailView onClose={this.closeDetailView} open={this.state.enableDetailView} maxWidth="md">
-                <SlideViewer width={800} height={600}>
-                    {slideList}
-                </SlideViewer>
-                <DialogContent>
-                    <h2>{title}</h2>
-                    <h3>Role: UI Development</h3>
-                    <h3>Tech: React.js</h3>
-                    <p>{description}</p>
-                </DialogContent>
-            </DetailView>
+            <Dialog onClose={this.closeDetailView} open={this.state.enableDetailView} maxWidth="lg">
+                <DetailViewContent>
+                    <SlideViewer width={700} height={525}>
+                        {slideList}
+                    </SlideViewer>
+                    <DetailViewSummary>
+                        <DetailViewHeader>
+                            <h2>{title}</h2>
+                            <h3>Role: UI Development</h3>
+                            <h3>Tech: React.js</h3>
+                        </DetailViewHeader>
+                        <DetailViewMain>{description}</DetailViewMain>
+                        <DetailViewFooter>
+                            { urlIcons.map((urlIcon, key) => {
+                                if(urlIcon.url === "") return null;                                
+                                
+                                return (
+                                    <LinkIcon href={urlIcon.url} target="blank" key={key}>
+                                        {urlIcon.icon}
+                                    </LinkIcon>
+                                );
+                            })}                            
+                        </DetailViewFooter>
+                    </DetailViewSummary>
+                </DetailViewContent>
+            </Dialog>
         );
 
         return(

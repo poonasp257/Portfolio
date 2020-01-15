@@ -8,13 +8,13 @@ const Container = styled.section`
     padding: 30px 0 100px 0;
     margin-bottom: 350px;
     color: #121E26;
+    text-align: center;
 `;
 
 const Header = styled.h1`
     margin: 0 auto;
     font-size: 40px;
     letter-spacing: 2px;
-    text-align: center;
 `;
 
 const HeaderBar = styled.hr`
@@ -24,12 +24,19 @@ const HeaderBar = styled.hr`
     background-color: #121E26;
 `;
 
+const Content = styled.div`
+    margin: 150px;
+    font-size: 30px;
+    font-weight: bold;
+`;
+
 class Blog extends PureComponent {
     render() {
         return (
             <Container id="blog">
                 <Header>Blog.</Header>
                 <HeaderBar/>
+                <Content>Comming Soon!!</Content>
             </Container>
         );
     }

@@ -8,7 +8,6 @@ const Container = styled.div`
     position: relative;
     width: ${props => props.width}px;
     height: ${props => props.height}px;
-    border-bottom: 3px solid #121E26;
 `;
 
 const SlideList = styled.div`
