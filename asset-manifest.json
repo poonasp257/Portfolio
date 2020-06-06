@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.e79bcb58.chunk.js",
+    "main.js": "/static/js/main.ef37c829.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.170f8412.js",
-    "static/js/2.3d6ebd99.chunk.js": "/static/js/2.3d6ebd99.chunk.js",
+    "static/js/2.46a43724.chunk.js": "/static/js/2.46a43724.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.5a26ba2fedfedbb0a93d9cd8a9ae52bb.js": "/precache-manifest.5a26ba2fedfedbb0a93d9cd8a9ae52bb.js",
+    "precache-manifest.1accc1677085e801981ea380b4e2d5e5.js": "/precache-manifest.1accc1677085e801981ea380b4e2d5e5.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.3d6ebd99.chunk.js.LICENSE": "/static/js/2.3d6ebd99.chunk.js.LICENSE",
+    "static/js/2.46a43724.chunk.js.LICENSE": "/static/js/2.46a43724.chunk.js.LICENSE",
     "static/media/collabo_screenshot_1.jpg": "/static/media/collabo_screenshot_1.f04be22c.jpg",
     "static/media/collabo_screenshot_2.jpg": "/static/media/collabo_screenshot_2.499f1540.jpg",
     "static/media/collabo_screenshot_3.jpg": "/static/media/collabo_screenshot_3.53f40ef0.jpg",
@@ -35,7 +35,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.170f8412.js",
-    "static/js/2.3d6ebd99.chunk.js",
-    "static/js/main.e79bcb58.chunk.js"
+    "static/js/2.46a43724.chunk.js",
+    "static/js/main.ef37c829.chunk.js"
   ]
 }
