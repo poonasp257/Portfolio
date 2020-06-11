@@ -1,66 +1,66 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components'
 
-import { 
-    Header, NavigationBar, Footer, AboutMe, Projects, Blog, VerticalScrollBar
-} from 'components';
-
 import { BlockReserveLoading } from 'react-loadingg';
 
-const Container = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-`;
+import { 
+    Header, NavigationBar, Footer, AboutMe, Projects, Daily
+} from 'components';
 
-const Content = styled.article`
+const Content = styled.section`
     z-index: 1;
     position: relative;
     background-color: #fafafa;
-    width: 100%;
-    height: auto;
     box-shadow: 0 10px 60px rgba(20,20,20,0.1), 0 10px 50px rgba(30, 30, 30, 0.06);
 `;
 
 const Loading = styled.div`
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: #f0f0f0;
-    z-index: 9999;
-    ${props => props.done ? `animation: fadeout 1.8s forwards;` : null}
-    @keyframes fadeout {
-        from { opacity: 1; }
-        to { opacity: 0; }
-        100% { z-index: -1; }
-    }
+    margin: 35vh auto;
+    text-align: center;
+`;
+
+const Item = styled.div`
+    display: block;
+    position: relative;
 `;
 
 class Home extends PureComponent {
     state = {
+        isPrepared: false,
         isLoaded: false
     };
 
     componentDidMount() {
-        this.setState({ isLoaded: true }); // redux...
+        setTimeout(() => {
+         this.setState({ isPrepared: true });
+         setTimeout(() => {
+             this.setState({ isLoaded: true });
+         }, 500);
+        }, 1000);
     }
 
     render() {  
         return (
-            <Container>
-                <Loading done={this.state.isLoaded}>
-                    <BlockReserveLoading color="#f9d6fd" size="large"/>
+            this.state.isLoaded ?
+                <div>
+                    <Header />
+                    <Content>
+                        <NavigationBar />
+                        <AboutMe />
+                        <Projects />
+                        <Daily />
+                    </Content>
+                    <Footer />
+                </div>
+                :
+                <Loading>
+                    <Item style={{ height: "120px" }}>
+                        <BlockReserveLoading color="#f9d6fd" size="large" />
+                    </Item>
+                    <Item>
+                        {this.state.isPrepared ? '환영합니다!' : '준비 중입니다.'}
+                    </Item>
                 </Loading>
-                <Header/>
-                <Content>
-                    <NavigationBar/>
-                    <AboutMe/>
-                    <Projects/>
-                    <Blog/>
-                </Content>
-                <Footer/>
-                <VerticalScrollBar size="6.5px" color="#b4b4b4"/>
-            </Container>
         );
     }
 };

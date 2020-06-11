@@ -10,6 +10,7 @@ import ShopIcon from '@material-ui/icons/Shop';
 
 import { CommonLoading } from 'react-loadingg';
 
+import TimeLine from './TimeLine';
 import SlideViewer from './SlideViewer';
 import animation from 'css/animation';
 
@@ -25,7 +26,6 @@ const OutContainer = styled.section`
 const InContainer = styled.div`
     position: relative;
     width: 100%;
-    max-width: 1000px;
     height: auto;
     margin: 25px auto;
     line-height: 1.0;
@@ -33,7 +33,7 @@ const InContainer = styled.div`
 
 const Header = styled.h1`
     margin: 0 auto;
-    font-size: 40px;
+    font-size: 2vw;
     letter-spacing: 2px;
     color: #fafafa;
 `;
@@ -64,9 +64,7 @@ class Projects extends PureComponent {
                 
                 return response.json();
             })
-            .catch((err) => {
-                console.log(err);
-            });
+            .catch((err) => console.log(err));
     }
     
     componentDidMount() {
@@ -82,26 +80,32 @@ class Projects extends PureComponent {
     render() {
         return (
             <OutContainer id="projects">
-                <Header>Works.</Header>
+                <Header>Projects.</Header>
                 <HeaderBar/>
                 <InContainer>
                     { !this.state.done ? ( 
                         <Loading>
                             <CommonLoading size="large"/>
                         </Loading>
-                    ) : this.state.projects.map((project, key) => (<Project {...project} key={key}/>)) }
+                    ) :
+                        <TimeLine>
+                            {this.state.projects.map((project, key) => 
+                                <Project {...project} key={key}/>)
+                            }
+                        </TimeLine>
+                    }
                 </InContainer>
             </OutContainer>
         );
     }
 };
-
+   
 const Content = styled.div`
     display: inline-block;
     position: relative;
     margin: 3px;
-    width: 480px;
-    height: 360px;
+    width: 26vw;
+    height: 19vw;
     cursor: pointer;
     overflow: hidden;
 `;
@@ -127,15 +131,15 @@ const Preview = styled.div`
 `;
 
 const PreviewTitle = styled.div`
-    margin-top: 110px;
-    font-size: 30px;
+    margin-top: 5.5vw;
+    font-size: 1.5vw;
     font-weight: bold;
 `;
 
 const PreviewDescription = styled.div`    
     margin: 25px auto;
-    width: 300px;
-    font-size: 20px;
+    width: 15vw;
+    font-size: 1vw;
     line-height: 1.8;
 `;
 
@@ -146,27 +150,41 @@ const DetailViewContent = styled.div`
 const DetailViewSummary = styled(DialogContent)`
     font-family: inherit;
     color: #121E26;
+    width: 20vw;
 `;
 
 const DetailViewHeader = styled.header`
+    margin-bottom: 0.75vw;
     border-bottom: 2px solid #121E26;
 `;
 
-const DetailViewMain = styled.p`
-    width: 380px;
+const DetailViewMain = styled.div`
+    height: 11.5vw;
     line-height: 1.8;
+    overflow: hidden;
+    padding-bottom: 0.75vw;
+    padding-right: 3.5vw;
+    border-bottom: 2px solid #121E26;
+
+    :hover {
+        overflow: overlay;
+    }    
+    &::-webkit-scrollbar {
+        width: 7px;
+        height: 7px;
+    }    
 `;
 
 const DetailViewFooter = styled.footer`
-    display: flex;
-    position: absolute;
-    right: 0;
+    position: relative;
+    left: 0;
     bottom: 0;
-    margin: 20px;
+    display: flex;
+    justify-content: flex-end;
 `;
 
 const LinkIcon = styled.a`
-    margin: 0px 10px 0px 10px;
+    margin: 10px 10px 0px 10px;
     text-decoration: none;
     transition: all .2s ease-in-out;
     color: #121E26;
@@ -176,18 +194,25 @@ const LinkIcon = styled.a`
     }       
 `;
 
+const HeaderText = styled.div`
+    display: block;
+    font-size: ${props => props.fontSize};
+    margin: 0.7vw 0 0.7vw 0;
+    font-weight: bold
+`;
+
 class Project extends PureComponent {
     constructor(props) {
         super(props);
 
         this.thumbnail = "";
-        this.images = [];
-
         if(props.thumbnail !== "") { 
-            this.thumbnail = require(`resources/${props.thumbnail}.jpg`);
+            this.thumbnail = require(`resources/projects/${props.thumbnail}`);
         }
+
+        this.images = [];
         if(props.images.length !== 0) {
-            this.images = props.images.map(image => require(`resources/${image}.jpg`));
+            this.images = props.images.map(image => require(`resources/projects/${image}`));
         }
 
         this.state = { 
@@ -213,7 +238,19 @@ class Project extends PureComponent {
     }
 
     render() {
-        const { title, subTitle, videoUrl, githubUrl, webSiteUrl, storeUrl, description } = this.props;
+        const { 
+            title, 
+            role,
+            technics,
+            platform,
+            terms,
+            subTitle, 
+            videoUrl, 
+            githubUrl, 
+            webSiteUrl, 
+            storeUrl,
+            description 
+        } = this.props;
 
         const preview = (
              <Preview hover={this.state.enablePreview}
@@ -225,41 +262,49 @@ class Project extends PureComponent {
         );
 
         const video = videoUrl !== "" ? <iframe title={title} src={videoUrl + '?rel=0'} frameBorder="0" key={title}/> : null;
-        const screenshot = this.images.map((image, key) => ( 
-                <img src={image} key={key} alt="none"/>)
-            );
-
-        let slideList = [ video ];
-        slideList = slideList.concat(screenshot);
+        let slideList = this.images.map((image, key) => ( 
+                <img src={image} key={key} alt="none"/>));
+        slideList.unshift(video)
 
         const urlIcons = [
             {
                 url: githubUrl,
-                icon: <GitHubIcon fontSize="large"/>
+                icon: <GitHubIcon style={{fontSize: '2vw'}}/>
             },
             {
                 url: webSiteUrl,
-                icon: <LaunchIcon fontSize="large"/>
+                icon: <LaunchIcon style={{fontSize: '2vw'}}/>
             },
             {
                 url: storeUrl,
-                icon: <ShopIcon fontSize="large"/>
+                icon: <ShopIcon style={{fontSize: '2vw'}}/>
             }
         ]
 
         const detailView = (
             <Dialog onClose={this.closeDetailView} open={this.state.enableDetailView} maxWidth="lg">
                 <DetailViewContent>
-                    <SlideViewer width={700} height={525}>
+                    <SlideViewer>
                         {slideList}
                     </SlideViewer>
                     <DetailViewSummary>
                         <DetailViewHeader>
-                            <h2>{title}</h2>
-                            <h3>Role: UI Development</h3>
-                            <h3>Tech: React.js</h3>
+                            <HeaderText fontSize="1.1vw">{title}</HeaderText>
+                            <HeaderText fontSize="0.9vw">Role: {role}</HeaderText>
+                            <HeaderText fontSize="0.9vw">Tech: {technics}</HeaderText>
+                            <HeaderText fontSize="0.9vw">Platform: {platform}</HeaderText>
+                            <HeaderText fontSize="0.9vw">Terms: {terms}</HeaderText>
                         </DetailViewHeader>
-                        <DetailViewMain>{description}</DetailViewMain>
+                        <DetailViewMain>
+                            {description.map((text, key) => {
+                                return (
+                                    <div key={key}>
+                                        {text}
+                                        <br/>
+                                    </div>
+                                );
+                            })}
+                        </DetailViewMain>
                         <DetailViewFooter>
                             { urlIcons.map((urlIcon, key) => {
                                 if(urlIcon.url === "") return null;                                

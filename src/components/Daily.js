@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Container = styled.section`
     z-index: 1;
     position: relative;
-    min-height: 400px;
+    min-height: 20vw;
     padding: 30px 0 100px 0;
     margin-bottom: 350px;
     color: #121E26;
@@ -13,7 +13,7 @@ const Container = styled.section`
 
 const Header = styled.h1`
     margin: 0 auto;
-    font-size: 40px;
+    font-size: 2vw;
     letter-spacing: 2px;
 `;
 
@@ -26,15 +26,15 @@ const HeaderBar = styled.hr`
 
 const Content = styled.div`
     margin: 150px;
-    font-size: 30px;
+    font-size: 1.8vw;
     font-weight: bold;
 `;
 
-class Blog extends PureComponent {
+class Daily extends PureComponent {
     render() {
         return (
-            <Container id="blog">
-                <Header>Blog.</Header>
+            <Container id="daily">
+                <Header>Daily.</Header>
                 <HeaderBar/>
                 <Content>Comming Soon!!</Content>
             </Container>
@@ -42,4 +42,4 @@ class Blog extends PureComponent {
     }
 };
 
-export default Blog;
+export default Daily;

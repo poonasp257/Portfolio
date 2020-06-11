@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 
 import logo from '../resources/logo_white.png';
-import backgroundImage from '../resources/Road.jpg';
+import backgroundImage from '../resources/home.jpg';
+
+import Fade from 'react-reveal/Fade';
 
 const Container = styled.header`
     z-index: 1;
@@ -27,7 +29,7 @@ const BlurContainer = styled.div`
 
 const Content = styled.div`
     position: relative;
-    width: 700px;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
     text-align: center;
@@ -51,12 +53,12 @@ const Logo = styled.img`
 
 const Title = styled.div`
     margin-top: 45px;
-    font-size: 40px;
+    font-size: 2vw;
     letter-spacing: 6px;
 `;
 
 const Bar = styled.hr`
-    margin-top: 20px;
+    margin-top: 15px;
     width: 110px;
     height: 1px;
     border: 0;
@@ -64,10 +66,10 @@ const Bar = styled.hr`
 `;
 
 const Instroduction = styled.div`
-    margin-top: 20px;
-    font-size: 20px;
+    margin: 100px auto;
+    font-size: 1.2vw;
     font-weight: 300;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 `;
 
 const ScrollDownIndicator = styled(KeyboardArrowDownIcon)`
@@ -82,20 +84,28 @@ const ScrollDownIndicator = styled(KeyboardArrowDownIcon)`
     }
 `;
 
+const TinyTitle = styled.div`
+    position: absolute;
+    margin: 25px 0 0 35px;
+    color: #fafafa;
+`;
+
 class Header extends PureComponent {    
     render() {
         return (
             <Container id="home">
                 <BlurContainer/>
+                <TinyTitle>JunYoung's Web Portfolio</TinyTitle>
                 <Content>
                     <Text>
-                        <Logo src={logo}/>
-                        <Title>DEVELOPER</Title>
-                        <Bar/>
-                        <Instroduction>
-                            클라이언트&서버 개발자<br/>
-                            JunYoung의 포트폴리오 사이트입니다.
-                        </Instroduction>
+                        <Fade top duration={1600}>
+                            <Logo src={logo}/>
+                            <Title>DEVELOPER</Title>
+                            <Bar/>
+                            <Instroduction>
+                                안녕하세요, 이준영입니다.
+                            </Instroduction>
+                        </Fade>
                     </Text>
                     <ScrollDownIndicator/>
                 </Content> 

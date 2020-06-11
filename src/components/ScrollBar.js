@@ -123,8 +123,8 @@ class VerticalScrollBar extends PureComponent {
         const { size } = this.props;
 
         return (
-            <VerticalScroll width={size}>
-                <VerticalBar {...this.props} {...this.state}/>
+            <VerticalScroll {...this.state}>
+                <VerticalBar width={size} {...this.props} {...this.state}/>
             </VerticalScroll>
         );
     }

@@ -11,12 +11,13 @@
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-loadingg": "^1.6.2",
+    "react-reveal": "^1.2.2",
     "react-scripts": "3.3.0",
     "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=src react-scripts start",
-    "build": "cross-env NODE_PATH=src react-scripts build",
+    "build": "cross-env NODE_PATH=src GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",

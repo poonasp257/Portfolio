@@ -4,9 +4,11 @@ import NavigationBar from './NavigationBar';
 import Footer from './Footer';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
-import Blog from './Blog';
+import Daily from './Daily';
 import { HorizontalScrollBar, VerticalScrollBar } from './ScrollBar';
 import SlideViewer from './SlideViewer';
+import List from './List';
+import TimeLine from './TimeLine';
 
 export { 
     Header,
@@ -15,8 +17,10 @@ export {
     Footer,
     AboutMe,
     Projects,
-    Blog,
+    Daily,
     HorizontalScrollBar,
     VerticalScrollBar,
-    SlideViewer
+    SlideViewer,
+    List,
+    TimeLine
 };

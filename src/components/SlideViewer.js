@@ -16,11 +16,9 @@ const SlideList = styled.div`
 `;
 
 const Slide = styled.div`
-    width: ${props => props.width}px;
-    height: ${props => props.height}px;
     user-select: none;
 `;
-
+    
 const buttonStyle = `
     position: absolute;
     top: 50%;
@@ -62,17 +60,18 @@ class SliderViewer extends PureComponent {
 
         this.ref = React.createRef();
 
-        this.SlideWidth = props.width;
-        this.SlideHeight = props.height;
-
         this.state = {
             currentIndex: 0,
-            items: props.children
+            items: props.children,
+            slideWidth: props.width,
+            slideHeight: props.height
         };
     }
 
-    moveTo = (position) => {
-        this.ref.current.scrollTo({ left: position * this.SlideWidth, behavior: 'smooth' });
+    moveTo = (index, distance) => {
+        if(!this.ref.current) return;
+
+        this.ref.current.scrollTo({ left: index * distance, behavior: 'smooth' });
     }
 
     increaseIndex = () => { 
@@ -80,7 +79,7 @@ class SliderViewer extends PureComponent {
         
         const nextIndex = this.state.currentIndex + 1;
         
-        this.moveTo(nextIndex);
+        this.moveTo(nextIndex, this.state.slideWidth);
         this.setState({ currentIndex: nextIndex });
     }
 
@@ -89,33 +88,55 @@ class SliderViewer extends PureComponent {
         
         const prevIndex = this.state.currentIndex - 1;
         
-        this.moveTo(prevIndex);
+        this.moveTo(prevIndex, this.state.slideWidth);
         this.setState({ currentIndex: prevIndex });
+    }
+
+    handleResize = () => {
+        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        const ratio = vw / vh;
+        const slideWidth = Math.ceil(vw / 2.74);
+        const slideHeight = Math.ceil(vh / 1.78 * ratio / 2);
+        
+        this.moveTo(this.state.currentIndex, slideWidth);
+        this.setState({ slideWidth, slideHeight });
+    }
+
+    componentDidMount() {
+        this.handleResize();
+
+        window.addEventListener('resize', this.handleResize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.handleResize);
     }
 
     render() {
         const { items, currentIndex } = this.state;
         
         return (
-            <Container width={this.SlideWidth} height={this.SlideHeight}>
+            <Container width={this.state.slideWidth} height={this.state.slideHeight}>
                 { currentIndex > 0 &&  
                     <BackwardButton onClick={this.decreaseIndex}>
-                        <BackwardArrow fontSize="large"/>
+                        <BackwardArrow style={{fontSize: '2vw'}}/>
                     </BackwardButton>
                 }
                 { currentIndex < items.length - 1 &&
                     <ForwardButton onClick={this.increaseIndex}>
-                        <ForwardArrow fontSize="large"/>
+                        <ForwardArrow style={{fontSize: '2vw'}}/>
                     </ForwardButton>
                 }
                 <SlideList ref={this.ref}>
                     { items.map((item, key) => {
                         return (
-                            <Slide key={key} width={this.SlideWidth} height={this.SlideHeight}> 
+                            <Slide key={key}> 
                                 { React.cloneElement(item, {
                                     style: {
-                                        width: this.SlideWidth,
-                                        height: this.SlideHeight
+                                        display: 'block',
+                                        width: this.state.slideWidth,
+                                        height: this.state.slideHeight,
                                     }
                                 }) }
                             </Slide>

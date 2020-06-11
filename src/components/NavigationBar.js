@@ -22,16 +22,9 @@ const Container = styled.nav`
     z-index: 2;
     top: 0px;
     width: 100%;
-    padding: 10px;
+    padding: 5px 0 5px 0;
     background-color: white;
     border-bottom: 1px solid #c8c8c8;
-`;
-
-const Content = styled.div`
-    position: relative;
-    width: 100%;
-    height: ${navMenuHeight}px;
-    margin: 0 auto;
 `;
 
 const Menu = styled.div`
@@ -72,14 +65,12 @@ class NavigationBar extends PureComponent {
     render() {
         return (
             <Container id="navigation" isFixed={this.state.isFixed}>
-                <Content>
-                    <Menu>
-                        <Link destination="home" name="home" navMode/>
-                        <Link destination="about" name="about me" navMode/>
-                        <Link destination="projects" name="projects" navMode/>
-                        <Link destination="blog" name="blog" navMode/>
-                    </Menu>
-                </Content>
+                <Menu>
+                    <Link destination="home" name="home" navMode/>
+                    <Link destination="about" name="about me" navMode/>
+                    <Link destination="projects" name="projects" navMode/>
+                    <Link destination="daily" name="daily" navMode/>
+                </Menu>
             </Container>
         );
     }
