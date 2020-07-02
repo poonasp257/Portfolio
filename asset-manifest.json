@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/static/js/main.ff04a979.chunk.js",
+    "main.js": "/static/js/main.241a6c9d.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.170f8412.js",
     "static/js/2.46a43724.chunk.js": "/static/js/2.46a43724.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.a903af2704d38247af0a58c274135698.js": "/precache-manifest.a903af2704d38247af0a58c274135698.js",
+    "precache-manifest.b99115d62d723fe517fb0b7a9e463976.js": "/precache-manifest.b99115d62d723fe517fb0b7a9e463976.js",
     "service-worker.js": "/service-worker.js",
     "static/js/2.46a43724.chunk.js.LICENSE": "/static/js/2.46a43724.chunk.js.LICENSE",
     "static/media/collabo_screenshot_1.jpg": "/static/media/collabo_screenshot_1.f04be22c.jpg",
@@ -36,6 +36,6 @@
   "entrypoints": [
     "static/js/runtime-main.170f8412.js",
     "static/js/2.46a43724.chunk.js",
-    "static/js/main.ff04a979.chunk.js"
+    "static/js/main.241a6c9d.chunk.js"
   ]
 }
