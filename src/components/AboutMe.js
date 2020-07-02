@@ -237,9 +237,7 @@ class AboutMe extends PureComponent {
                                 </SubArticle>
                                 <SubArticle>
                                     <Title>
-                                        <TitleIcon>
-                                            <CheckIcon/>
-                                        </TitleIcon>
+                                        <TitleIcon/>
                                         Planning
                                     </Title>
                                     <Description>
@@ -249,9 +247,7 @@ class AboutMe extends PureComponent {
                                 </SubArticle>
                                 <SubArticle>
                                     <Title>
-                                        <TitleIcon>
-                                            <CheckIcon/>
-                                        </TitleIcon>
+                                        <TitleIcon/>
                                         Game-Friendly
                                     </Title>
                                     <Description>
@@ -260,9 +256,7 @@ class AboutMe extends PureComponent {
                                 </SubArticle>
                                 <SubArticle>
                                     <Title>
-                                        <TitleIcon>
-                                            <CheckIcon/>
-                                        </TitleIcon>
+                                        <TitleIcon/>
                                         Co-Work
                                     </Title>
                                     <Description>

@@ -7,8 +7,11 @@ const Container = styled.div`
     text-transform: uppercase;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
-    color: ${ props => props.active ? '#B4D2D9' : '' };
-    :hover { color: #B4D2D9; }
+    color: ${ props => props.active || props.hover ? '#B4D2D9' : '' };
+    ${ 
+        ("ontouchstart" in document.documentElement) ? 
+        '' : ':hover { color: #B4D2D9; }' 
+    }
 `;
 
 class Link extends PureComponent {
@@ -47,11 +50,15 @@ class Link extends PureComponent {
             && scrollY < this.targetRectBottom) {
                 this.setState({ isActivated: true });
         }
-        else this.setState({ isActivated: false });
+        else {
+            this.setState({ isActivated: false });
+        }
     }
 
-    handleClick = () => {
+    handleClick = (event) => {
         if (!this.props.navMode) return;
+
+        event.preventDefault()
 
         this.intializeTarget();
 
@@ -63,7 +70,10 @@ class Link extends PureComponent {
         const { navMode } = this.props;
 
         return (
-            <Container ref={this.ref} active={isActivated && navMode}>
+            <Container 
+                ref={this.ref} 
+                active={isActivated && navMode}
+            >
                 { this.props.name }
             </Container>
         );

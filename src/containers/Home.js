@@ -17,10 +17,10 @@ const Content = styled.section`
 const Loading = styled.div`
     margin: 35vh auto;
     text-align: center;
+    font-size: 1.3rem;
 `;
 
 const Item = styled.div`
-    display: block;
     position: relative;
 `;
 
@@ -32,16 +32,17 @@ class Home extends PureComponent {
 
     componentDidMount() {
         setTimeout(() => {
-         this.setState({ isPrepared: true });
-         setTimeout(() => {
-             this.setState({ isLoaded: true });
-         }, 500);
+            this.setState({ isPrepared: true });
+            setTimeout(() => {
+                this.setState({ isLoaded: true });
+            }, 500);
         }, 1000);
     }
 
     render() {  
         return (
-            <div>
+            this.state.isLoaded ?
+                <div>
                     <Header />
                     <Content>
                         <NavigationBar />
@@ -51,6 +52,14 @@ class Home extends PureComponent {
                     </Content>
                     <Footer />
                 </div>
+                : <Loading>
+                    <Item style={{ height: "120px" }}>
+                        <BlockReserveLoading color="#f9d6fd" size="large" />
+                    </Item>
+                    <Item>
+                        {this.state.isPrepared ? '환영합니다!' : '준비 중입니다.'}
+                    </Item>
+                </Loading>
         );
     }
 };

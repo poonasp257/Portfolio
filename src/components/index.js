@@ -1,3 +1,4 @@
+import StyledIcon from './StyledIcon';
 import Header from './Header';
 import Link from './Link';
 import NavigationBar from './NavigationBar';
@@ -10,7 +11,8 @@ import SlideViewer from './SlideViewer';
 import List from './List';
 import TimeLine from './TimeLine';
 
-export { 
+export {
+    StyledIcon,
     Header,
     Link,
     NavigationBar,

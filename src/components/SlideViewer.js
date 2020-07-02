@@ -44,6 +44,18 @@ const ForwardButton = styled.div`
 
 const arrowStyle = `
     margin: 5px;
+        
+    @media (min-width: 1281px) {
+        font-size: 38px !important;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 26px !important;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 18px !important;
+    }
 `;
 
 const BackwardArrow = styled(BackwardArrowIcon)`
@@ -93,12 +105,28 @@ class SliderViewer extends PureComponent {
     }
 
     handleResize = () => {
-        const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-        const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-        const ratio = vw / vh;
-        const slideWidth = Math.ceil(vw / 2.74);
-        const slideHeight = Math.ceil(vh / 1.78 * ratio / 2);
+        let slideWidth, slideHeight;
         
+        if (window.matchMedia("(min-width: 1281px)").matches) {
+            slideWidth = 800;
+            slideHeight = 700;
+        }
+        else if (window.matchMedia("(min-width: 768px)").matches
+            && window.matchMedia("(max-width: 1280px)").matches) {
+                slideWidth = 650;
+                slideHeight = 400;
+        }
+        else if (window.matchMedia("(min-width: 500px)").matches
+            && window.matchMedia("(max-width: 767px)").matches) {
+                slideWidth = 500;
+                slideHeight = 300;
+        }
+        else if (window.matchMedia("(min-width: 320px)").matches
+            && window.matchMedia("(max-width: 500px)").matches) {
+                slideWidth = 280;
+                slideHeight = 200;
+        }
+
         this.moveTo(this.state.currentIndex, slideWidth);
         this.setState({ slideWidth, slideHeight });
     }
@@ -120,12 +148,12 @@ class SliderViewer extends PureComponent {
             <Container width={this.state.slideWidth} height={this.state.slideHeight}>
                 { currentIndex > 0 &&  
                     <BackwardButton onClick={this.decreaseIndex}>
-                        <BackwardArrow style={{fontSize: '2vw'}}/>
+                        <BackwardArrow/>
                     </BackwardButton>
                 }
                 { currentIndex < items.length - 1 &&
                     <ForwardButton onClick={this.increaseIndex}>
-                        <ForwardArrow style={{fontSize: '2vw'}}/>
+                        <ForwardArrow/>
                     </ForwardButton>
                 }
                 <SlideList ref={this.ref}>
@@ -136,7 +164,7 @@ class SliderViewer extends PureComponent {
                                     style: {
                                         display: 'block',
                                         width: this.state.slideWidth,
-                                        height: this.state.slideHeight,
+                                        height: this.state.slideHeight
                                     }
                                 }) }
                             </Slide>

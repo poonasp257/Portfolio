@@ -10,6 +10,7 @@ import ShopIcon from '@material-ui/icons/Shop';
 
 import { CommonLoading } from 'react-loadingg';
 
+import StyledIcon from './StyledIcon';
 import TimeLine from './TimeLine';
 import SlideViewer from './SlideViewer';
 import animation from 'css/animation';
@@ -110,7 +111,7 @@ class Projects extends PureComponent {
         );
     }
 };
-   
+
 const Content = styled.div`
     display: inline-block;
     position: relative;
@@ -119,12 +120,14 @@ const Content = styled.div`
     height: 19vw;
     cursor: pointer;
     overflow: hidden;
+    
 `;
 
 const Thumbnail = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
+    backgrounD-color: #f2f2f2;
     background-image: url('${props => props.src}');
     background-size: cover;
     transition: transform 0.3s;
@@ -132,6 +135,7 @@ const Thumbnail = styled.div`
 `;
 
 const Preview = styled.div`
+    ${props=> props.hover ? '' : 'display: none;'}
     position: absolute;
     width: 100%;
     height: 100%;
@@ -156,12 +160,51 @@ const PreviewDescription = styled.div`
 
 const DetailViewContent = styled.div`
     display: flex;
+    overflow: auto;
+        
+    @media (max-width: 1281px) {
+        display: block;
+    }
 `;
 
 const DetailViewSummary = styled(DialogContent)`
     font-family: inherit;
     color: #121E26;
-    width: 20vw;
+
+    @media (min-width: 1281px) {
+        width: 575px;
+        
+        &::-webkit-scrollbar {
+            width: 13px;
+        }    
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        width: 602px;
+        height: 280px;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+        }    
+    }
+    
+    @media (min-width: 500px) and (max-width: 767px) {
+        width: 452px;
+        height: 280px;
+        
+        &::-webkit-scrollbar {
+            width: 8px;
+        }    
+    }
+    
+    @media (min-width: 320px) and (max-width: 500px) {
+        width: 232px;
+        height: 230px;
+        
+        &::-webkit-scrollbar {
+            width: 7px;
+        }    
+    }
 `;
 
 const DetailViewHeader = styled.header`
@@ -170,20 +213,28 @@ const DetailViewHeader = styled.header`
 `;
 
 const DetailViewMain = styled.div`
-    height: 11.5vw;
     line-height: 1.8;
-    overflow: hidden;
-    padding-bottom: 0.75vw;
-    padding-right: 3.5vw;
+    overflow: auto;
     border-bottom: 2px solid #121E26;
+    padding-bottom: 0.75vw;
 
-    :hover {
-        overflow: overlay;
-    }    
-    &::-webkit-scrollbar {
-        width: 7px;
-        height: 7px;
-    }    
+    @media (min-width: 1281px) {
+        font-size: 17px;
+        height: 400px;
+        padding-right: 10px;
+
+        &::-webkit-scrollbar {
+            width: 13px;
+        }    
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 13px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 7px;
+    }
 `;
 
 const DetailViewFooter = styled.footer`
@@ -205,11 +256,41 @@ const LinkIcon = styled.a`
     }       
 `;
 
-const HeaderText = styled.div`
-    display: block;
-    font-size: ${props => props.fontSize};
+const headerStyle = `
     margin: 0.7vw 0 0.7vw 0;
     font-weight: bold
+`
+
+const DetailViewTitle = styled.div`
+    ${headerStyle}
+    
+    @media (min-width: 1281px) {
+        font-size: 21px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 17px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 11px;
+    }
+`;
+
+const DetailViewSubTitle = styled.div`
+    ${headerStyle}
+
+    @media (min-width: 1281px) {
+        font-size: 17px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 13px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 7px;
+    }
 `;
 
 class Project extends PureComponent {
@@ -263,48 +344,41 @@ class Project extends PureComponent {
             description 
         } = this.props;
 
-        const preview = (
-             <Preview hover={this.state.enablePreview}
-                    onClick={this.handleClick} 
-                    onMouseLeave={this.handleMouseLeave}>
-                <PreviewTitle>{title}</PreviewTitle>
-                <PreviewDescription>{subTitle}</PreviewDescription>
-            </Preview>
-        );
-
         const video = videoUrl !== "" ? <iframe title={title} src={videoUrl + '?rel=0'} frameBorder="0" key={title}/> : null;
-        let slideList = this.images.map((image, key) => ( 
-                <img src={image} key={key} alt="none"/>));
+        let slideList = this.images.map((image, key) => { 
+            return <img src={image} key={key}/>
+        });
         slideList.unshift(video)
 
-        const urlIcons = [
-            {
+        const urlIcons = [ {
                 url: githubUrl,
-                icon: <GitHubIcon style={{fontSize: '2vw'}}/>
-            },
-            {
+                icon: <StyledIcon component={GitHubIcon}/>
+            }, {
                 url: webSiteUrl,
-                icon: <LaunchIcon style={{fontSize: '2vw'}}/>
-            },
-            {
+                icon: <StyledIcon component={LaunchIcon}/>
+            }, {
                 url: storeUrl,
-                icon: <ShopIcon style={{fontSize: '2vw'}}/>
+                icon: <StyledIcon component={ShopIcon}/>
             }
         ]
 
         const detailView = (
-            <Dialog onClose={this.closeDetailView} open={this.state.enableDetailView} maxWidth="lg">
+            <Dialog 
+                onClose={this.closeDetailView} 
+                open={this.state.enableDetailView} 
+                maxWidth={false}
+            >
                 <DetailViewContent>
                     <SlideViewer>
                         {slideList}
                     </SlideViewer>
-                    <DetailViewSummary>
+                    <DetailViewSummary className=".MuiDialogContent-dividers">
                         <DetailViewHeader>
-                            <HeaderText fontSize="1.1vw">{title}</HeaderText>
-                            <HeaderText fontSize="0.9vw">Role: {role}</HeaderText>
-                            <HeaderText fontSize="0.9vw">Tech: {technics}</HeaderText>
-                            <HeaderText fontSize="0.9vw">Platform: {platform}</HeaderText>
-                            <HeaderText fontSize="0.9vw">Terms: {terms}</HeaderText>
+                            <DetailViewTitle>{title}</DetailViewTitle>
+                            <DetailViewSubTitle>Role: {role}</DetailViewSubTitle>
+                            <DetailViewSubTitle>Tech: {technics}</DetailViewSubTitle>
+                            <DetailViewSubTitle>Platform: {platform}</DetailViewSubTitle>
+                            <DetailViewSubTitle>Terms: {terms}</DetailViewSubTitle>
                         </DetailViewHeader>
                         <DetailViewMain>
                             {description.map((text, key) => {
@@ -318,7 +392,7 @@ class Project extends PureComponent {
                         </DetailViewMain>
                         <DetailViewFooter>
                             { urlIcons.map((urlIcon, key) => {
-                                if(urlIcon.url === "") return null;                                
+                                if(urlIcon.url === "") return null;    
                                 
                                 return (
                                     <LinkIcon href={urlIcon.url} target="blank" key={key}>
@@ -326,7 +400,7 @@ class Project extends PureComponent {
                                     </LinkIcon>
                                 );
                             })}                            
-                        </DetailViewFooter>
+                        </DetailViewFooter> 
                     </DetailViewSummary>
                 </DetailViewContent>
             </Dialog>
@@ -334,8 +408,14 @@ class Project extends PureComponent {
 
         return(
             <Content onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-                <Thumbnail src={this.thumbnail} hover={this.state.enablePreview}/>
-                { this.state.enablePreview ? preview : null }
+                <Thumbnail src={this.thumbnail} hover={this.state.enablePreview} onClick={this.handleClick}/>
+                <Preview hover={this.state.enablePreview}
+                    onClick={this.handleClick}
+                    onMouseLeave={this.handleMouseLeave}
+                >
+                    <PreviewTitle>{title}</PreviewTitle>
+                    <PreviewDescription>{subTitle}</PreviewDescription>
+                </Preview>
                 { this.state.enableDetailView ? detailView : null }
             </Content>
         )

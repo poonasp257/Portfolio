@@ -18,6 +18,7 @@ const Container = styled.header`
     background-repeat: no-repeat;
     background-image: url('${backgroundImage}');
     background-size: cover;
+    background-color: #121E26;
 `;
 
 const BlurContainer = styled.div`

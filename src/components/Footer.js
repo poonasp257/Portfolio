@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-import GitHub from '@material-ui/icons/GitHub';
-import AlternateEmail from '@material-ui/icons/AlternateEmail';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import AlternateEmailIcon from '@material-ui/icons/AlternateEmail';
 
+import StyledIcon from './StyledIcon';
 import Link from './Link';
 
 const Container = styled.footer`
@@ -155,28 +156,6 @@ const Address = styled.span`
     }    
 `;
 
-const iconSize = `
-    @media (min-width: 1281px) {   
-        font-size: 38px !important;      
-    }
-
-    @media (min-width: 768px) and (max-width: 1280px) {  
-        font-size: 28px !important;      
-    }
-
-    @media (min-width: 320px) and (max-width: 767px) {
-        font-size: 20px !important;      
-    } 
-`;
-
-const GitHubIcon = styled(GitHub)`
-    ${iconSize}
-`;
-
-const AlternateEmailIcon = styled(AlternateEmail)`
-    ${iconSize}
-`;
-
 class Footer extends PureComponent {
     render() {
         return (
@@ -185,11 +164,11 @@ class Footer extends PureComponent {
                 <SubHeader>작업할 준비 됐습니다. 언제든지 편하게 연락 주세요!</SubHeader>
                 <Contact>
                     <LinkIcon href="https://github.com/poonasp257" target="blank">
-                        <GitHubIcon/>
+                        <StyledIcon component={GitHubIcon}/>
                         <Address>https://github.com/poonasp257</Address>
                     </LinkIcon>
                     <LinkIcon href="mailto:poonasp257@naver.com">
-                        <AlternateEmailIcon/>
+                        <StyledIcon component={AlternateEmailIcon}/>
                         <Address>poonasp257@naver.com</Address>
                     </LinkIcon>
                 </Contact>
