@@ -33,9 +33,20 @@ const InContainer = styled.div`
 
 const Header = styled.h1`
     margin: 0 auto;
-    font-size: 2vw;
     letter-spacing: 2px;
     color: #fafafa;
+    
+    @media (min-width: 1281px) {
+        font-size: 40px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 36px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 32px;
+    }
 `;
 
 const HeaderBar = styled.hr`

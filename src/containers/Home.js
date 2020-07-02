@@ -41,8 +41,7 @@ class Home extends PureComponent {
 
     render() {  
         return (
-            this.state.isLoaded ?
-                <div>
+            <div>
                     <Header />
                     <Content>
                         <NavigationBar />
@@ -52,15 +51,6 @@ class Home extends PureComponent {
                     </Content>
                     <Footer />
                 </div>
-                :
-                <Loading>
-                    <Item style={{ height: "120px" }}>
-                        <BlockReserveLoading color="#f9d6fd" size="large" />
-                    </Item>
-                    <Item>
-                        {this.state.isPrepared ? '환영합니다!' : '준비 중입니다.'}
-                    </Item>
-                </Loading>
         );
     }
 };

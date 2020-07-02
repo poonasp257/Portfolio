@@ -40,7 +40,7 @@ const Text = styled.div`
     position: absolute;
     text-align: center;
     margin: auto;
-    top: 100px;
+    top: 15%;
     left: 0;
     bottom: 0;
     right: 0;
@@ -53,8 +53,19 @@ const Logo = styled.img`
 
 const Title = styled.div`
     margin-top: 45px;
-    font-size: 2vw;
     letter-spacing: 6px;
+
+    @media (min-width: 1281px) {
+        font-size: 38px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 26px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 18px;
+    }
 `;
 
 const Bar = styled.hr`
@@ -70,6 +81,18 @@ const Instroduction = styled.div`
     font-size: 1.2vw;
     font-weight: 300;
     letter-spacing: 2px;
+
+    @media (min-width: 1281px) {
+        font-size: 24px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 20px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 16px;
+    }
 `;
 
 const ScrollDownIndicator = styled(KeyboardArrowDownIcon)`
@@ -88,6 +111,18 @@ const TinyTitle = styled.div`
     position: absolute;
     margin: 25px 0 0 35px;
     color: #fafafa;
+    
+    @media (min-width: 1281px) {
+        font-size: 20px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 16px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 12px;
+    }
 `;
 
 class Header extends PureComponent {    

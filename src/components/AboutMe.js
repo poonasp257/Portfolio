@@ -13,7 +13,7 @@ const Container = styled.section`
     position: relative;
     line-height: 1.8;
     min-height: 400px;
-    padding: 65px 0 40px 0;
+    padding-top: 30px;
     text-align: center;
     color: #121E26;
     display: flow-root;
@@ -21,8 +21,19 @@ const Container = styled.section`
 
 const Header = styled.h1`
     margin: 0 auto;
-    font-size: 2vw;
     letter-spacing: 2px;
+    
+    @media (min-width: 1281px) {
+        font-size: 40px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 36px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 32px;
+    }
 `;
 
 const HeaderBar = styled.hr`
@@ -33,7 +44,17 @@ const HeaderBar = styled.hr`
 `;
 
 const articleStyle = `
-    margin-bottom: 120px;
+    @media (min-width: 1281px) {
+        margin-bottom: 120px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        margin-bottom: 80px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        margin-bottom: 40px;
+    }
 `;
 
 const LeftArticle = styled.article` 
@@ -49,30 +70,89 @@ const RightArticle = styled.article`
 `;
 
 const SubHeader = styled.h1`
-    font-size: 1.8vw;
     margin-top: 45px;
     margin-bottom: 10px;
+        
+    @media (min-width: 1281px) {
+        font-size: 34px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 28px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 24px;
+    }
 `; 
 
 const SubArticle = styled.article`
-    font-size: 1vw;
     margin-bottom: 60px;
-`;
+        
+    @media (min-width: 1281px) {
+        font-size: 19px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 15px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 11px;
+    }`
+;
 
 const Title = styled.div`
-    font-size: 1.1em;
-    font-weight: 800;
+    font-weight: 800;    
+
+    @media (min-width: 1281px) {
+        font-size: 19px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        font-size: 16px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        font-size: 13px;
+    }
 `;
 
 const TitleIcon = styled(CheckIcon)`
     position: relative;
-    top: 4px;
     margin-right: 10px;
+
+    @media (min-width: 1281px) {
+        top: 4px;
+        font-size: 28px !important;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        top: 3px;
+        font-size: 24px !important;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        top: 2px;
+        font-size: 20px !important;
+    }
 `;
 
 const Description = styled.div`
-    width: 21.25vw;
-    margin-left: 34px;
+    @media (min-width: 1281px) {
+        width: 450px;
+        margin-left: 34px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        width: 350px;
+        margin-left: 34px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        width: 250px;
+        margin-left: 34px;
+    }
 `;
 
 class AboutMe extends PureComponent {
@@ -151,13 +231,15 @@ class AboutMe extends PureComponent {
                                         Readable Code
                                     </Title>
                                     <Description>
-                                        유지보수는 물론, 다른 팀원과의 작업을 위해
+                                        유지보수는 물론, 다른 팀원과의 작업을 위해<br/>
                                         가독성을 고민하며 코드를 작성합니다.
                                     </Description>
                                 </SubArticle>
                                 <SubArticle>
                                     <Title>
-                                        <TitleIcon/>
+                                        <TitleIcon>
+                                            <CheckIcon/>
+                                        </TitleIcon>
                                         Planning
                                     </Title>
                                     <Description>
@@ -167,7 +249,9 @@ class AboutMe extends PureComponent {
                                 </SubArticle>
                                 <SubArticle>
                                     <Title>
-                                        <TitleIcon/>
+                                        <TitleIcon>
+                                            <CheckIcon/>
+                                        </TitleIcon>
                                         Game-Friendly
                                     </Title>
                                     <Description>
@@ -176,11 +260,13 @@ class AboutMe extends PureComponent {
                                 </SubArticle>
                                 <SubArticle>
                                     <Title>
-                                        <TitleIcon />
+                                        <TitleIcon>
+                                            <CheckIcon/>
+                                        </TitleIcon>
                                         Co-Work
                                     </Title>
                                     <Description>
-                                        소모임 활동과 다양한 협업 프로젝트 경험을 바탕으로
+                                        소모임 활동과 다양한 협업 프로젝트 경험을 바탕으로<br/>
                                         팀원과 의사소통을 우선시 합니다.
                                     </Description>
                                 </SubArticle>

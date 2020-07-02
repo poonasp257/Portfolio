@@ -27,11 +27,10 @@ class Link extends PureComponent {
         const target = document.getElementById(this.props.destination);
         const targetRect = target.getBoundingClientRect();
         const navBar = document.getElementById("navigation");
+        const navHeight = this.props.floatNav ? navBar.offsetHeight : 0;
 
-        this.targetRectTop = Math.round(targetRect.top - bodyRect.top);
-        this.targetRectTop -= this.props.floatNav ? navBar.offsetHeight : 0;
-        this.targetRectBottom = Math.round(this.targetRectTop + targetRect.height);
-        this.targetRectBottom -= !this.props.floatNav ? navBar.offsetHeight : 0;
+        this.targetRectTop = Math.round(targetRect.top - bodyRect.top - navHeight);
+        this.targetRectBottom = Math.floor(this.targetRectTop + targetRect.height);
     }
 
     componentDidMount() {
@@ -55,8 +54,6 @@ class Link extends PureComponent {
         if (!this.props.navMode) return;
 
         this.intializeTarget();
-
-        console.log(this.targetRectTop)
 
         window.scrollTo({ top: this.targetRectTop, behavior: 'smooth' });
     }

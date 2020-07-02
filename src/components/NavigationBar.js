@@ -28,50 +28,76 @@ const Container = styled.nav`
 `;
 
 const Menu = styled.div`
-    padding: 15px;
     color: #121E26;
     text-align: center; 
+
+    @media (min-width: 1281px) {
+        padding: 15px;
+        font-size: 18px;
+    }
+      
+    @media (min-width: 768px) and (max-width: 1280px) {
+        padding: 11px;
+        font-size: 14px;
+    }
+    
+    @media (min-width: 320px) and (max-width: 767px) {
+        padding: 7px;
+        font-size: 10px;
+    }
+`;
+
+const Blank = styled.div`
+    width: 100%;
+    height: ${props=>props.height}px;
 `;
 
 class NavigationBar extends PureComponent {
     constructor(props) {
         super(props);
 
-        this.maxHiddenHeight = 0;
-        
         this.state = {
-            isFixed: false
+            isFixed: false,
+            maxHiddenHeight: 0,
+            navHeight: 0
         };
     }
 
     handleScroll = () => {
-        const { pageYOffset } = window;
-        const isFixed = pageYOffset > this.maxHiddenHeight ? true : false;
+        const isFixed = window.pageYOffset > this.state.maxHiddenHeight ? true : false;
 
         this.setState({ isFixed: isFixed });
     }
 
     componentDidMount() {
-        this.maxHiddenHeight = document.getElementById("home").offsetHeight;
+        this.resizeHiddenHeight();
 
-        window.addEventListener("resize", this.handleResize);
+        window.addEventListener("resize", this.resizeHiddenHeight);
         window.addEventListener("scroll", this.handleScroll);
     }
     
-    handleResize = () => {
-        this.maxHiddenHeight = document.getElementById("home").offsetHeight;
+    resizeHiddenHeight = () => {
+        const navRect = document.getElementById("navigation").getBoundingClientRect();
+ 
+        this.setState({ 
+            maxHiddenHeight: document.getElementById("home").offsetHeight,
+            navHeight: navRect.height
+        });
     }
 
     render() {
         return (
-            <Container id="navigation" isFixed={this.state.isFixed}>
-                <Menu>
-                    <Link destination="home" name="home" navMode/>
-                    <Link destination="about" name="about me" navMode floatNav/>
-                    <Link destination="projects" name="projects" navMode floatNav/>
-                    <Link destination="daily" name="daily" navMode floatNav/>
-                </Menu>
-            </Container>
+            <div>
+                <Blank height={this.state.navHeight}/>
+                <Container id="navigation" isFixed={this.state.isFixed}>
+                    <Menu>
+                       <Link destination="home" name="home" navMode/>
+                       <Link destination="about" name="about me" navMode floatNav/>
+                       <Link destination="projects" name="projects" navMode floatNav/>
+                       <Link destination="daily" name="daily" navMode floatNav/>
+                    </Menu>
+                </Container>
+            </div>
         );
     }
 };
