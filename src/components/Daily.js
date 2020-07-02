@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const Container = styled.section`
     z-index: 1;
     position: relative;
-    min-height: 20vw;
+    min-height: 45vw;
     padding: 30px 0 100px 0;
-    margin-bottom: 350px;
+    margin-bottom: ${window.outerWidth * 0.2}px;
     color: #121E26;
     text-align: center;
 `;

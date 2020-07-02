@@ -67,9 +67,9 @@ class NavigationBar extends PureComponent {
             <Container id="navigation" isFixed={this.state.isFixed}>
                 <Menu>
                     <Link destination="home" name="home" navMode/>
-                    <Link destination="about" name="about me" navMode/>
-                    <Link destination="projects" name="projects" navMode/>
-                    <Link destination="daily" name="daily" navMode/>
+                    <Link destination="about" name="about me" navMode floatNav/>
+                    <Link destination="projects" name="projects" navMode floatNav/>
+                    <Link destination="daily" name="daily" navMode floatNav/>
                 </Menu>
             </Container>
         );

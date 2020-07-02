@@ -84,10 +84,6 @@ class Footer extends PureComponent {
                     </LinkIcon>
                 </Contact>
                 <Navigation>
-                    <Link destination="home" name="home" />
-                    <Link destination="about" name="about me" />
-                    <Link destination="projects" name="projects" />
-                    <Link destination="daily" name="daily" />
                 </Navigation>
                 <Copyright>© JUNYOUNG 2020. Designed with React.js</Copyright>
             </Container>

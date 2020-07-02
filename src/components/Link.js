@@ -1,12 +1,13 @@
 import React, { PureComponent } from 'react';
 import styled from 'styled-components';
 
-const Container = styled.section`
+const Container = styled.div`
     display: inline-block;
     margin-left: 30px;
     text-transform: uppercase;
     cursor: pointer;
     transition: color 0.2s ease-in-out;
+    color: ${ props => props.active ? '#B4D2D9' : '' };
     :hover { color: #B4D2D9; }
 `;
 
@@ -15,42 +16,48 @@ class Link extends PureComponent {
         super(props);
         
         this.ref = React.createRef();
-        this.targetRectTop = null; 
-        this.targetRectBottom = null; 
-        this.navBarHeight = 0;
-
+        
         this.state = {
             isActivated: false
         };
     }
 
     intializeTarget = () => {
-        const navBar = document.getElementById("navigation");
+        var bodyRect = document.body.getBoundingClientRect();
         const target = document.getElementById(this.props.destination);
         const targetRect = target.getBoundingClientRect();
+        const navBar = document.getElementById("navigation");
 
-        this.targetRectTop = targetRect.top + window.pageYOffset - navBar.offsetHeight;
-        this.targetRectBottom = targetRect.bottom + window.pageYOffset - navBar.offsetHeight;
-        this.navBarHeight = navBar.offsetHeight;
+        this.targetRectTop = Math.round(targetRect.top - bodyRect.top);
+        this.targetRectTop -= this.props.floatNav ? navBar.offsetHeight : 0;
+        this.targetRectBottom = Math.round(this.targetRectTop + targetRect.height);
+        this.targetRectBottom -= !this.props.floatNav ? navBar.offsetHeight : 0;
     }
 
     componentDidMount() {
-        this.intializeTarget();
-        
-        window.addEventListener("resize", this.intializeTarget);
         window.addEventListener("scroll", this.handleScroll);
         this.ref.current.addEventListener("click", this.handleClick);
     }    
 
-    handleScroll = () => {
-        if(this.targetRectTop - this.navBarHeight <= window.pageYOffset
-            && window.pageYOffset < this.targetRectBottom - this.navBarHeight) {
+    handleScroll = (e) => {
+        this.intializeTarget();
+
+        const scrollY = Math.round(window.pageYOffset);
+
+        if(this.targetRectTop <= scrollY
+            && scrollY < this.targetRectBottom) {
                 this.setState({ isActivated: true });
-            }
+        }
         else this.setState({ isActivated: false });
     }
 
     handleClick = () => {
+        if (!this.props.navMode) return;
+
+        this.intializeTarget();
+
+        console.log(this.targetRectTop)
+
         window.scrollTo({ top: this.targetRectTop, behavior: 'smooth' });
     }
     
