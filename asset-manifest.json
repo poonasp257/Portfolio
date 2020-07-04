@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.1523d8a6.chunk.js",
+    "main.js": "/static/js/main.6c43ee7b.chunk.js",
     "runtime-main.js": "/static/js/runtime-main.170f8412.js",
-    "static/js/2.08ac5086.chunk.js": "/static/js/2.08ac5086.chunk.js",
+    "static/js/2.8bf49d52.chunk.js": "/static/js/2.8bf49d52.chunk.js",
     "index.html": "/index.html",
-    "precache-manifest.d486e76f65441f112388bc4671179b0f.js": "/precache-manifest.d486e76f65441f112388bc4671179b0f.js",
+    "precache-manifest.aa607ce4de6a6cd6f3dad95765baea88.js": "/precache-manifest.aa607ce4de6a6cd6f3dad95765baea88.js",
     "service-worker.js": "/service-worker.js",
-    "static/js/2.08ac5086.chunk.js.LICENSE": "/static/js/2.08ac5086.chunk.js.LICENSE",
+    "static/js/2.8bf49d52.chunk.js.LICENSE": "/static/js/2.8bf49d52.chunk.js.LICENSE",
     "static/media/collabo_screenshot_1.jpg": "/static/media/collabo_screenshot_1.f04be22c.jpg",
     "static/media/collabo_screenshot_2.jpg": "/static/media/collabo_screenshot_2.499f1540.jpg",
     "static/media/collabo_screenshot_3.jpg": "/static/media/collabo_screenshot_3.53f40ef0.jpg",
@@ -22,6 +22,13 @@
     "static/media/heroes_screenshot_8.jpg": "/static/media/heroes_screenshot_8.1366f5d7.jpg",
     "static/media/heroes_thumbnail.jpg": "/static/media/heroes_thumbnail.9363aab2.jpg",
     "static/media/home.jpg": "/static/media/home.f0359529.jpg",
+    "static/media/home_php_screenshot_1.jpg": "/static/media/home_php_screenshot_1.a2843abc.jpg",
+    "static/media/home_php_screenshot_2.jpg": "/static/media/home_php_screenshot_2.ef5d8647.jpg",
+    "static/media/home_php_screenshot_3.jpg": "/static/media/home_php_screenshot_3.b14b035e.jpg",
+    "static/media/home_php_screenshot_4.jpg": "/static/media/home_php_screenshot_4.5a4aaa28.jpg",
+    "static/media/home_php_screenshot_5.jpg": "/static/media/home_php_screenshot_5.723cbde1.jpg",
+    "static/media/home_php_screenshot_6.jpg": "/static/media/home_php_screenshot_6.eef9de42.jpg",
+    "static/media/home_php_thumbnail.jpg": "/static/media/home_php_thumbnail.4611d4c3.jpg",
     "static/media/planet_screenshot_1.jpg": "/static/media/planet_screenshot_1.9807117c.jpg",
     "static/media/planet_thumbnail.png": "/static/media/planet_thumbnail.49427bb7.png",
     "static/media/pos_screenshot_1.png": "/static/media/pos_screenshot_1.de55e965.png",
@@ -35,7 +42,7 @@
   },
   "entrypoints": [
     "static/js/runtime-main.170f8412.js",
-    "static/js/2.08ac5086.chunk.js",
-    "static/js/main.1523d8a6.chunk.js"
+    "static/js/2.8bf49d52.chunk.js",
+    "static/js/main.6c43ee7b.chunk.js"
   ]
 }

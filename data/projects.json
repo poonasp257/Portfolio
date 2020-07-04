@@ -151,6 +151,31 @@
                 "4.C++와 C# 간의 통신을 위해 Byte Stream으로 마샬링 구현",
                 "5.계정 인증 서버를 Express.js로 구축하고, C++ 서버와의 HTTP 통신 구현"
             ]
+        },
+        {
+            "title": "Simple Homepage",
+            "role": "기획, 개발",
+            "technics": "JS, JQuery / PHP, MySQL",
+            "platform": "Web",
+            "terms": "2020.6 ~ 2020.7",
+            "subTitle": "JS와 PHP를 이용한 홈페이지",
+            "thumbnail": "home_php_thumbnail.jpg",
+            "videoUrl": "https://www.youtube.com/embed/wC9iIxwc0oY",
+            "images": [
+                "home_php_screenshot_1.jpg",
+                "home_php_screenshot_2.jpg",
+                "home_php_screenshot_3.jpg",
+                "home_php_screenshot_4.jpg",
+                "home_php_screenshot_5.jpg",
+                "home_php_screenshot_6.jpg"
+            ],
+            "githubUrl": "https://github.com/poonasp257/Homepage-PHP",
+            "webSiteUrl": "",
+            "storeUrl": "",
+            "description": [
+                "올해 대학 강의를 통해 처음 PHP를 배우게 됐고 이를 활용해 지난 프로젝트인 MMORPG 게임을 위한 홈페이지로 공지사항, 자유게시판과 같은 단순한 커뮤니티 기능을 구현하게 됐습니다.",
+                "React.js를 사용하다보니 다른 라이브러리에 대한 접근이 쉬워 순수한 JS에는 소홀해졌던 것 같아 이번 프로젝트는 최소한의 Jquery 라이브러리만을 사용하여 개발을 진행하게 됐습니다. 결과적으로 JS의 기초적인 부분을 다시 한 번 고민해 볼 수 있었고, 서버 사이드 언어로써 PHP는 때로는 JS보다도 더 적은 코드로 기능을 구현할 수 있었기에 충분히 강력한 언어라고 생각됐습니다."
+            ]
         }
     ]
 }
