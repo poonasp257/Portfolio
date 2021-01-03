@@ -346,7 +346,7 @@ class Project extends PureComponent {
 
         const video = videoUrl !== "" ? <iframe title={title} src={videoUrl + '?rel=0'} frameBorder="0" key={title}/> : null;
         let slideList = this.images.map((image, key) => { 
-            return <img src={image} key={key}/>
+            return <img src={image} key={key} alt="project"/>
         });
         slideList.unshift(video)
 
