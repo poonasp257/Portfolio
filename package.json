@@ -12,7 +12,7 @@
     "react-dom": "^16.12.0",
     "react-loadingg": "^1.6.2",
     "react-reveal": "^1.2.2",
-    "react-scripts": "3.3.0",
+    "react-scripts": "5.0.1",
     "styled-components": "^4.4.1"
   },
   "scripts": {
